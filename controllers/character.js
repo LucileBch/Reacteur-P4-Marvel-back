@@ -7,7 +7,7 @@ const axios = require(`axios`);
 const characterDisplay = async (req, res) => {
   try {
     // Queries destructuring
-    const { name, skip, limit } = req.query;
+    const { name = "", skip = "", limit = "" } = req.query;
 
     const { data } = await axios.get(
       `${process.env.API_URL}/characters?apiKey=${process.env.API_KEY}&name=${name}&limit=${limit}&skip=${skip}`
