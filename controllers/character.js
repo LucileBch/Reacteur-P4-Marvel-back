@@ -10,7 +10,7 @@ const characterDisplay = async (req, res) => {
     const { name, skip, limit } = req.query;
 
     const { data } = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}&name=${name}&limit=${limit}&skip=${skip}`
+      `${process.env.API_URL}/characters?apiKey=${process.env.API_KEY}&name=${name}&limit=${limit}&skip=${skip}`
     );
 
     res.status(200).json(data);
