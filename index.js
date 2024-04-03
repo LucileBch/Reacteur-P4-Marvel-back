@@ -1,6 +1,6 @@
 // ---------- APPLICATION ----------
 // Packages Imports
-require("dotenv").config();
+// require("dotenv").config();
 const express = require(`express`);
 const cors = require(`cors`);
 
@@ -10,6 +10,10 @@ const app = express();
 // Enable JSON format and Cross-Origin request
 app.use(cors());
 app.use(express.json());
+
+// Importing routes
+const characterRoutes = require(`./routes/character`);
+app.use(characterRoutes);
 
 // ---------- Routes ALL ----------
 // Welcome Route
