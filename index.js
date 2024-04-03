@@ -15,6 +15,9 @@ app.use(express.json());
 const characterRoutes = require(`./routes/character`);
 app.use(characterRoutes);
 
+const comicRoutes = require(`./routes/comic`);
+app.use(comicRoutes);
+
 // ---------- Routes ALL ----------
 // Welcome Route
 app.get(`/`, (req, res) => {
