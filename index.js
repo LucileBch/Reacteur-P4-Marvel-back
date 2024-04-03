@@ -1,6 +1,5 @@
 // ---------- APPLICATION ----------
 // Packages Imports
-// require("dotenv").config();
 const express = require(`express`);
 const cors = require(`cors`);
 
@@ -11,11 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Importing routes
+// Routes Imports
 const characterRoutes = require(`./routes/character`);
-app.use(characterRoutes);
-
 const comicRoutes = require(`./routes/comic`);
+app.use(characterRoutes);
 app.use(comicRoutes);
 
 // ---------- Routes ALL ----------
