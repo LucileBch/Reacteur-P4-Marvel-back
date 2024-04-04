@@ -19,9 +19,11 @@ mongoose.connect(process.env.MONGODB_URI);
 const characterRoutes = require(`./routes/character`);
 const comicRoutes = require(`./routes/comic`);
 const userRoutes = require(`./routes/user`);
+const likedRoutes = require(`./routes/liked`);
 app.use(characterRoutes);
 app.use(comicRoutes);
 app.use(userRoutes);
+app.use(likedRoutes);
 
 // ---------- Routes ALL ----------
 // Welcome Route

@@ -21,12 +21,12 @@ const userSignup = async (req, res) => {
     //      email, username or password is missing
     const emailToCheck = await User.findOne({ email });
     if (emailToCheck) {
-      return res.status(400).json({ message: `This email already exists` });
+      return res.status(409).json({ message: `This email already exists` });
     }
 
     if (!username || !email || !password) {
       return res.status(401).json({
-        message: `Please make sure to fill the fields email, username and password`,
+        message: `Missing parameters`,
       });
     }
 
