@@ -1,7 +1,9 @@
 // ---------- APPLICATION ----------
 // Packages Imports
+require("dotenv").config();
 const express = require(`express`);
 const cors = require(`cors`);
+const mongoose = require(`mongoose`);
 
 // Create server
 const app = express();
@@ -10,11 +12,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Creating and connecting to database
+mongoose.connect(process.env.MONGODB_URI);
+
 // Routes Imports
 const characterRoutes = require(`./routes/character`);
 const comicRoutes = require(`./routes/comic`);
+const userRoutes = require(`./routes/user`);
 app.use(characterRoutes);
 app.use(comicRoutes);
+app.use(userRoutes);
 
 // ---------- Routes ALL ----------
 // Welcome Route
@@ -28,6 +35,6 @@ app.all(`*`, (req, res) => {
 });
 
 // Listening on :
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server started 🚀`);
 });
