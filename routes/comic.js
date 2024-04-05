@@ -1,19 +1,33 @@
 // ---------- COMICS Routing ----------
-require(`dotenv`).config();
-const axios = require(`axios`);
 // Packages Imports
 const express = require(`express`);
 const router = express.Router();
 
+// Middleware Imports
+const authentication = require(`../middleware/authentication`);
+
 // Controllers Imports
 const comicsCtrl = require(`../controllers/comic`);
 
+// ---------- API LOGIC :
 // ---------- Routes GET ----------
-// Get All Comics
+// Get all comics
 router.get(`/comics`, comicsCtrl.comicsDisplay);
 
-// Get Comics according to character Id
-router.get(`/comics/:characterId`, comicsCtrl.comicsByCharacterId);
+// Get comics according to character Id
+router.post(`/comics/:characterId`, comicsCtrl.comicsByCharacterId);
 
-// Export route
+// ---------- DB LOGIC :
+// ---------- Routes POST ----------
+// Register new comic liked in DB
+router.post(`/comic/like`, authentication, comicsCtrl.likedComics);
+
+// Display all comics liked from DB
+router.get(`/comics/like`, authentication, comicsCtrl.likedComicsDisplay);
+
+// ---------- Routes DELETE ----------
+// Dislike comic
+router.delete(`/comics/dislike/:id`, comicsCtrl.dislikedComic);
+
+// Export routes
 module.exports = router;

@@ -4,10 +4,7 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require(`crypto-js/enc-base64`);
 const uid2 = require("uid2");
 
-// Utils Imports
-const convertToBase64 = require(`../utils/convertToBase64`);
-
-// Import models
+// Models Importq
 const User = require(`../models/User`);
 
 // ---------- POST ----------
@@ -30,7 +27,7 @@ const userSignup = async (req, res) => {
       });
     }
 
-    // Encrypting password
+    // Encrypt password
     const saltPassword = uid2(16);
     const hashPassword = SHA256(password + saltPassword).toString(encBase64);
     const token = uid2(32);
@@ -62,21 +59,20 @@ const userLogin = async (req, res) => {
     // Excluding condition if email field is empty
     if (!req.body.email) {
       return res
-        .status(400)
+        .status(401)
         .json({ message: `Please enter your email adress!` });
     }
 
     // Excluding condition if email is incorrect
     const userToFind = await User.findOne({ email: req.body.email });
     if (!userToFind) {
-      return res.status(400).json({ message: `Email or password incorrect` });
+      return res.status(401).json({ message: `Email or password incorrect` });
     }
 
     // Testing password correspondance
     const hashToCheck = SHA256(req.body.password + userToFind.salt).toString(
       encBase64
     );
-
     if (hashToCheck === userToFind.hash) {
       res.status(202).json({
         _id: userToFind.id,

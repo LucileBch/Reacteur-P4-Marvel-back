@@ -1,5 +1,5 @@
 // ---------- COMIC LIKED Model ----------
-// Import package (mongoose)
+// Packages Imports
 const mongoose = require(`mongoose`);
 
 // Schema structure

@@ -19,11 +19,9 @@ mongoose.connect(process.env.MONGODB_URI);
 const characterRoutes = require(`./routes/character`);
 const comicRoutes = require(`./routes/comic`);
 const userRoutes = require(`./routes/user`);
-const likedRoutes = require(`./routes/liked`);
 app.use(characterRoutes);
 app.use(comicRoutes);
 app.use(userRoutes);
-app.use(likedRoutes);
 
 // ---------- Routes ALL ----------
 // Welcome Route
@@ -31,12 +29,12 @@ app.get(`/`, (req, res) => {
   res.status(200).json({ message: `Welcome to my Marvel server` });
 });
 
-//Exclude uncorrect paths
+//Exclude non existing paths
 app.all(`*`, (req, res) => {
   res.status(404).json({ message: `This route does not exist` });
 });
 
 // Listening on :
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server started 🚀`);
 });

@@ -3,10 +3,7 @@
 const express = require(`express`);
 const router = express.Router();
 
-// Import middleware
-const authentication = require(`../middleware/authentication`);
-
-// Import user controllers
+// User controllers Imports
 const userCtrl = require(`../controllers/user`);
 
 // ---------- Routes POST ----------
@@ -16,5 +13,5 @@ router.post(`/user/signup`, userCtrl.userSignup);
 // Login
 router.post(`/user/login`, userCtrl.userLogin);
 
-// Export route
+// Export routes
 module.exports = router;
