@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require(`express`);
 const cors = require(`cors`);
 const mongoose = require(`mongoose`);
+const morgan = require("morgan");
 
 // Create server
 const app = express();
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // Creating and connecting to database
 mongoose.connect(process.env.MONGODB_URI);
+
+// Register logs
+app.use(morgan("dev"));
 
 // Routes Imports
 const characterRoutes = require(`./routes/character`);
