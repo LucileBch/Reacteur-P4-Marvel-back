@@ -15,7 +15,7 @@ const comicsCtrl = require(`../controllers/comic`);
 router.get(`/comics`, comicsCtrl.comicsDisplay);
 
 // Get comics according to character Id
-router.post(`/comics/:characterId`, comicsCtrl.comicsByCharacterId);
+router.get(`/comics/:characterId`, comicsCtrl.comicsByCharacterId);
 
 // ---------- DB LOGIC :
 // ---------- Routes POST ----------
