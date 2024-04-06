@@ -23,7 +23,7 @@ router.get(`/comics/:characterId`, comicsCtrl.comicsByCharacterId);
 router.post(`/comic/like`, authentication, comicsCtrl.likedComics);
 
 // Display all comics liked from DB
-router.get(`/comics/like`, authentication, comicsCtrl.likedComicsDisplay);
+router.get(`/like-comics`, authentication, comicsCtrl.likedComicsDisplay);
 
 // ---------- Routes DELETE ----------
 // Dislike comic
