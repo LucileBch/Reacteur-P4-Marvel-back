@@ -17,7 +17,7 @@ router.get(`/characters`, characterCtrl.charactersDisplay);
 // ---------- DB LOGIC :
 // ---------- Routes POST ----------
 // Register new character liked in DB
-router.post(`liked-comics`, authentication, characterCtrl.likedCharacters);
+router.post(`liked-characters`, authentication, characterCtrl.likedCharacters);
 
 // Display all characters liked from DB
 router.get(
