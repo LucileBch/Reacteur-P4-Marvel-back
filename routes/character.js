@@ -17,11 +17,11 @@ router.get(`/characters`, characterCtrl.charactersDisplay);
 // ---------- DB LOGIC :
 // ---------- Routes POST ----------
 // Register new character liked in DB
-router.post(`/liked-characters`, authentication, characterCtrl.likedCharacters);
+router.post(`/character/like`, authentication, characterCtrl.likedCharacters);
 
 // Display all characters liked from DB
 router.get(
-  `/characters/like`,
+  `/liked-characters`,
   authentication,
   characterCtrl.likedCharactersDisplay
 );
