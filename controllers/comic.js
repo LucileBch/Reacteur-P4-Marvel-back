@@ -66,7 +66,7 @@ const likedComics = async (req, res) => {
       owner: userId.id,
     });
     await newComicLiked.save();
-    res.status(201).json({ message: `Comic added to favorite list !` });
+    res.status(201).json({ message: `Comic added to favorite !` });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

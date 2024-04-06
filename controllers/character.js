@@ -39,7 +39,7 @@ const likedCharacters = async (req, res) => {
       owner: userId._id,
     });
     if (existingCharacter) {
-      return res.status(400).json({ message: `Already registered !` });
+      return res.status(401).json({ message: `Already registered !` });
     }
     // create new instance
     const newCharacterLiked = new CharacterLiked({
@@ -50,7 +50,7 @@ const likedCharacters = async (req, res) => {
       owner: userId.id,
     });
     await newCharacterLiked.save();
-    res.status(200).json({ message: `Character added to favorite !` });
+    res.status(201).json({ message: `Character added to favorite !` });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
