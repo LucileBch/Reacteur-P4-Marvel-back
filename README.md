@@ -7,10 +7,10 @@
 - [x] **Node JS**
 - [x] **Mongo DB**
 - [x] **Express**
-- [x] Frontend **React** : https://github.com/LucileBch/Reacteur-P4-Marvel-front.git
+- [x] Frontend **React** [Github](https://github.com/LucileBch/Reacteur-P4-Marvel-front.git)
 
-Front Hosted on Netlify : https://reacteur-training-marvel.netlify.app/
-Backend hosted on NorthFlank : https://site--backend-marvel--mrqlhtl4f2zp.code.run/
+Front Hosted on [Netlify](https://reacteur-training-marvel.netlify.app/) \
+Backend hosted on [NorthFlank](https://site--backend-marvel--mrqlhtl4f2zp.code.run/)
 
 ## Routes
 
