@@ -4,14 +4,12 @@
 
 **Marvel Backend** made in context of training at [@Le Reacteur](https://github.com/lereacteur) bootcamp.
 
-Hosted on NorthFlank : https://site--backend-marvel--mrqlhtl4f2zp.code.run/
-
 - [x] **Node JS**
 - [x] **Mongo DB**
 - [x] **Express**
 - [x] Frontend **React** : https://github.com/LucileBch/Reacteur-P4-Marvel-front.git
 
-Front Hosted on Netlify : ........
+Front Hosted on Netlify : https://reacteur-training-marvel.netlify.app/
 Backend hosted on NorthFlank : https://site--backend-marvel--mrqlhtl4f2zp.code.run/
 
 ## Routes
